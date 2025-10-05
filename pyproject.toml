@@ -1,0 +1,35 @@
+[project]
+name = "development-toolbox-mcp"
+version = "0.1.0"
+description = "A collection of MCP servers for code analysis and Docker control."
+authors = [
+    { name = "João Ferro", email = "jgmferro@gmail.com" },
+]
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["mcp", "dev-tools", "docker", "code-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "mcp==1.16.0",
+    "uvicorn==0.37.0",
+    "starlette==0.48.0",
+    "docker==7.1.0",
+    "ruff==0.13.3",
+    "mypy==1.18.2",
+    "types-docker==7.1.0.20250916"
+]
+
+[project.scripts]
+dev-toolbox = "development_toolbox_mcp.main:run"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
