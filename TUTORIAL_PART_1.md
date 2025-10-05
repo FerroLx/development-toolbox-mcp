@@ -338,7 +338,7 @@ The Inspector is an invaluable tool for debugging, and you can explore its more 
 
 ## Conclusion and What's Next
 
-Congratulations! You've successfully built and tested your first MCP server. You now have a personal, extensible toolbox that can perform code analysis and manage Docker containers. The full code for this tutorial is available on GitHub at [YOUR_GITHUB_PROJECT_LINK_HERE].
+Congratulations! You've successfully built and tested your first MCP server. You now have a personal, extensible toolbox that can perform code analysis and manage Docker containers. The full code for this tutorial is available on [GitHub](https://github.com/FerroLx/development-toolbox-mcp).
 
 This is the foundational "sensory system" of our co-pilot—it can perform quick, stateless actions.
 

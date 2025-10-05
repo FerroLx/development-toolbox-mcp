@@ -1,53 +1,62 @@
 # Development Toolbox MCP
 
-A collection of MCP servers providing development tools for code analysis and Docker control.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+An extensible, AI-powered development toolbox built with the Model-Context-Protocol (MCP) framework. This repository provides a ready-to-use server with tools for code analysis and Docker management, designed to be called by any MCP-compatible AI agent.
 
-- **Code Analysis**: Perform linting with `ruff` and static type checking with `mypy`.
-- **Docker Control**: Manage your Docker containers right from your agent.
+This project also serves as the official source code for our tutorial series on building advanced MCPs.
 
-## Installation
+## ✨ Features
 
-To ensure the `dev-toolbox` command is available, install the project in editable mode along with its development dependencies using `uv`:
+*   **Code Analysis**: Perform linting with `ruff` and static type checking with `mypy`.
+*   **Docker Control**: List and stop running Docker containers directly from your agent.
+*   **Tutorial Project**: This repository represents the completed code for Part 1 of the "Building an AI-Powered Development Co-Pilot" tutorial series.
 
-```bash
-uv pip install -e .[dev]
-```
+## 🚀 Getting Started
 
-## Running the Server
+To run the server from the source code, follow these steps. This is the recommended setup for both using the tools and following the tutorial.
 
-You can run the server using the `dev-toolbox` script with `uv run`:
+1.  **Prerequisites**:
+    *   Python 3.10 or higher
+    *   `uv` (install with `pip install uv`)
+    *   Docker Desktop (must be running for the Docker tools to work)
 
-```bash
-uv run dev-toolbox
-```
+2.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/FerroLx/development-toolbox-mcp
+    cd development-toolbox-mcp
+    ```
 
-By default, the server uses Server-Sent Events (SSE). You can also run it with Streamable HTTP by passing arguments after `--`:
+3.  **Install dependencies**:
+    This command installs all dependencies and makes the `dev-toolbox` script available.
+    ```bash
+    uv pip install -e .
+    ```
 
-```bash
-uv run dev-toolbox -- --transport stream-http
-```
+4.  **Run the server**:
+    You can now run the server using `uv run`.
+    ```bash
+    uv run dev-toolbox
+    ```
+    The server will start on `http://localhost:9654`.
 
-The MCPs will be available at:
+5.  **Connect Your Agent**: The MCP server is now running. Use the following URLs in your MCP client (e.g., Cursor, Claude Code, or the MCP Inspector):
 
-  - **Code Analysis**: `http://localhost:9654/code`
-  - **Docker Control**: `http://localhost:9654/docker`
+    *   **Code Analysis Server**: `http://localhost:9654/code`
+    *   **Docker Control Server**: `http://localhost:9654/docker`
 
-## How to Use
+## 🎓 Tutorial Series
 
-Connect your MCP agent to the server endpoints to start using the tools.
+This repository is the starting point for a tutorial series on building a sophisticated, AI-powered development co-pilot.
 
-### Code Analysis Tools
+*   **Read Part 1: Your First MCP Server** - This tutorial walks you through building the exact code in this repository from scratch.
 
-  - `run_linter(project_path: str)`: Runs Ruff on the specified path and returns a report.
-  - `run_type_checker(project_path: str)`: Runs Mypy on the specified path and returns a report.
+Future tutorials will build on this foundation to add more advanced features like stateful sessions, real-time log streaming, and external API integrations.
 
-### Docker Control Tools
+## 🤝 Contributing
 
-  - `list_containers(all_containers: bool = False)`: Lists all Docker containers.
-  - `stop_container(container_id: str)`: Stops a container by its ID.
+Contributions are welcome! If you have an idea for a new tool or an improvement, please open an issue or submit a pull request.
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for details.
